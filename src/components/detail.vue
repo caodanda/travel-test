@@ -1,9 +1,10 @@
 <template>
-  <div class="detail">
+  <div class="detail" :class ='{classActive:theme_id == 2}'>
     <div class="detailWrapper">
       <div class="title">
         <span></span>
-        <img src="../assets/detail/t1.png"/>
+        <img v-if="theme_id == 1" src="../assets/detail/t1.png"/>
+        <img v-if="theme_id == 2" src="../assets/detail/t2.png"/>
       </div>
       <div class="teacher">
         <div class="TitleImg">
@@ -104,17 +105,10 @@
       </div>
     </div>
     <div class="changeBtn">
-      <div class="change" @click="changeTitle">
+      <div class="change">
         <img src="../assets/detail/c1.png"/>
-        <span>主题切换</span>
+        <span>点击分享</span>
       </div>
-      <div class="share" @click="share">
-        <img src="../assets/detail/c2.png"/>
-        <span>分享作品</span>
-      </div>
-    </div>
-    <div class="share-layer" v-if="show">
-      <img src="../assets/detail/s1.png"/>
     </div>
   </div>
 </template>
@@ -143,21 +137,36 @@ export default {
       stuNum1:0,
       stuNum2:0,
       stuNum3:0,
+      theme_id:1
     }
   },
   mounted(){
-    axios({
-      url:'https://easy-mock.com/mock/5f58738ad5906660c22dae64/example/axiosmock',
+    this.theme_id = this.$route.query.id
+    if(this.theme_id == 1){
+      axios({
+      url:'https://mock.yonyoucloud.com/mock/16373/travel-test',
     }).then(
       (res)=>{
         this.teacher = res.data.data.teacher;
         this.assists = res.data.data.assist;
         this.students = res.data.data.student;
-         console.log(this.assists)
       },
       (err)=>{
         console.log(err)
       })
+    }else{
+      axios({
+        url:'https://mock.yonyoucloud.com/mock/16376/travel-test1',
+      }).then(
+        (res)=>{
+          this.teacher = res.data.data.teacher;
+          this.assists = res.data.data.assist;
+          this.students = res.data.data.student;
+        },
+        (err)=>{
+          console.log(err);
+        })
+    }
   },
   methods:{
     share(){
@@ -176,106 +185,99 @@ export default {
     left(key){
       this[key]--;
     },
-    // 点击切换路由，不是点击更新信息
-    changeTitle(){
-      axios({
-        url:'https://easy-mock.com/mock/5f58738ad5906660c22dae64/example/axios.mock2',
-      }).then(
-        (res)=>{
-          this.teacher = res.data.data.teacher;
-          this.assists = res.data.data.assist;
-          this.students = res.data.data.student;
-        },
-        (err)=>{
-          console.log(err);
-        })
-    }
+    // changeTitle(){
+    //   if(this.theme_id == 1){
+    //     this.theme_id =2
+    //   }else{
+    //     this.theme_id =1
+    //   }
+    // }
   }
 }
-// 未做的点：1.点击第二页路由到第三页；3.点击博主name页面升高；4.点击【主题切换】更新路由
-// 已经做需熟悉：2.轮播图；
 </script>
 
 <style scoped>
 .detail{
-  width: 473px;
-  background:  url('../assets/classify/b1.jpg') fixed;
+  width: 20rem;
+  background:  url('../assets/classify/b1.jpg') fixed no-repeat;
   color: #000;
   position: relative;
 }
-
+.classActive{
+  background:  url('../assets/classify/b2.jpg') fixed no-repeat;
+}
 .detailWrapper{
-  width: 430px;
-  height: 1244px;
+  width: 20rem;
+  height: 60rem;
   margin: 0 auto;
   text-align: left;
 }
 .title{
-  padding-top: 30px;
+  padding-top: 1.5rem;
 }
 .title span{
   display: inline-block;
-  height: 20px;
-  border: #f6ba47 solid 3px;
+  height: 1rem;
+  border: #f6ba47 solid 0.15rem;
 }
 .title img{
-  width: 162px;
-  height: 37px;
+  width: 7.8rem;
+  height: 1.8rem;
   margin-left: 4px;
 }
 .teacher,.assist,.students{
   width: 100%;
-  height: 310px;
-  margin-bottom: 40px;
+  height: 15rem;
+  margin-bottom: 1.93rem;
   position: relative;
   overflow: hidden;
 }
 .teacher{
-  margin-top: 20px;
+  margin-top: 1rem;
 }
 .TitleImg{
   width: 100%;
-  height: 54px;
-  line-height: 54px;
+  height: 2.6rem;
+  line-height: 2.6rem;
   background-color: #fff;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 .TitleImg img{
-  width: 278px;
-  height: 20px;
-  margin-left: 70px;
+  width: 13.4rem;
+  height: 1rem;
+  margin-left: 3.4rem;
 }
 .works{
-  height: 200px;
+  height: 9.7rem;
   position: relative;
   overflow: hidden;
 }
 .works span{
   display: inline-block;
-  width: 60px;
-  height: 52px;
+  width: 2.9rem;
+  height: 2.5rem;
   position: absolute;
   top: 45%;
 }
 .works .left{
   background: url(../assets/detail/left.png) no-repeat ;
-  background-size: 40px 36px;
+  background-size: 1.9rem 1.73rem;
   left: 0px;
 }
 .works .right{
   background: url(../assets/detail/right.png) no-repeat;
-  background-size: 40px 36px;
+  background-size: 1.9rem 1.73rem;
   right: 0px;
 }
 .works img{
-  width: 430px;
-  height: 200px;
+  width: 20.8rem;
+  height: 9.7rem;
 }
 .author{
   width: 100%;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
   background-color: #ffd74c;
   text-align: center;
   position: absolute;
@@ -284,20 +286,20 @@ export default {
   background-color: #ffffff;
 }
 .teacher .author,.assist .assist-author,.students .students-author{
-  height: 56px;
+  height: 2.7rem;
   position: relative;
   vertical-align: top;
   box-sizing: border-box;
 }
 .teacher .author,.assist .assist-author{
-  line-height: 56px;
+  line-height: 2.7rem;
 }
 .author img{
-  width: 34px;
-  height: 34px;
-  border-radius: 45px;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 2.1rem;
   vertical-align: middle;
-  margin-right: 6px;
+  margin-right: 0.3rem;
 }
 .author span,.author img{
   display: inline-block;
@@ -306,13 +308,13 @@ export default {
 .assist-author{
   width: 50%;
   display: inline-block;
-  font-size: 16px;
+  font-size: 0.8rem;
 }
 .students-author{
   width: 25%;
   height: 100%;
   display: inline-block;
-  font-size: 12px;
+  font-size: 0.6rem;
   border-right: 0.1px solid #eeeeee;
   
 }
@@ -322,54 +324,55 @@ export default {
 /* 设置点击后的样式 */
 .author .activeName{
   background-color:#ffd74c ;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  height: 96px;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  height: 4.6rem;
   position: absolute;
   width: 100%;
   bottom: 0;
 }
 .author .activeName img,.assist .activeName span{
-  margin-top: 24px;
+  margin-top: 1.2rem;
 }
 .students-author img{
-  width: 30px;
-  height: 30px;
-  margin-bottom: 4px;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-bottom: 0.2rem;
 }
 .students-author p{
-  height: 12px;
+  height: 0.6rem;
 }
 .changeBtn{
   width: 100%;
-  height: 76px;
+  height: 3.7rem;
   clear: both; 
   position: fixed;
   bottom: 0px;
 }
 .change,.share{
   float: left;
-  height: 76px;
-  line-height: 76px;
+  height: 3.7rem;
+  line-height: 3.7rem;
   text-align: center;
   font-weight: 600;
 }
 .change img,.share img{
-  width: 22px;
-  height: 20px;
-  margin-right: 4px;
+  width: 1.1rem;
+  height: 1rem;
+  margin-right: 0.2rem;
 }
 .change{
-  width: 180px;
+  width: 20rem;
   background-color: #fff;
-  border-top-left-radius: 15px;
-  font-size: 16px;
+  border-top-left-radius: 0.7rem;
+  border-top-right-radius: 0.7rem;
+  font-size: 0.8rem;
 }
 .share{
-  width: 293px;
+  width: 14.2rem;
   background-color: #ffd74c;
-  border-top-right-radius: 15px;
-  font-size: 22px;
+  border-top-right-radius: 0.7rem;
+  font-size: 1.1rem;
 }
 .share-layer{
   width: 100%;
@@ -384,9 +387,9 @@ export default {
   position: absolute;
   top: 0px;
   right: 0px;
-  width: 236px;
-  height: 160px;
-  margin: 10px 0px 0 180px ;
+  width: 11.4rem;
+  height: 7.7rem;
+  margin: 0.5rem 0px 0 8.7rem ;
   
 }
 </style>

@@ -10,3 +10,6 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
+
+let html = document.documentElement;
+html.style.fontSize = html.getBoundingClientRect().width / 20 + 'px'

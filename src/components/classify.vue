@@ -62,90 +62,93 @@ export default {
       this.num = activeIndex
     },
     getDetail(){
-      this.$router.push('./detail')
-    }
+      this.$router.push({
+        path:'/detail',
+        query:{
+          id:this.num
+        }})
+    },
   }
 }
 </script>
 <style scoped>
 .classify-container{
-  width: 473px;
-  height: 760px;
+  width: 20rem;
+  height: 35.6rem;
   color: #333333;
   position: relative;
 }
 .leftImg{
-  background-image: url('../assets/classify/b1.jpg');
-  background-size: 473px 760px;
+  background:url('../assets/classify/b1.jpg')  no-repeat;
+  background-size: 22.9rem 36.7rem;
 }
 .rightImg{
-  background-image: url('../assets/classify/b2.jpg');
-  background-size: 473px 760px;
+  background:url('../assets/classify/b2.jpg') no-repeat;
+  background-size: 22.9rem 36.7rem;
 }
 .classify-wrapper{
-  width: 380px;
+  width: 18.4rem;
   margin: 0 auto;
-  padding-top: 60px;
+  padding-top: 2.9rem;
 }
 .video-wrap{
-  width:380px ;
-  height: 240px;
-  padding: 10px 0;
+  width:18.4rem ;
+  height: 11.6rem;
+  padding: 0.5rem 0;
   background-color:#333;
 }
 .introduce{
-  width: 380px;
-  height: 193px;
+  width: 18.4rem;
+  height: 9.3rem;
   text-align: center;
   background-color:#ffffff;
-  border-radius: 15px;
-  margin-top: 40px;
-  font-size: 14px;
+  border-radius: 0.7rem;
+  margin-top:1.93rem;
+  font-size: 0.7rem;
 }
 .introduce div{
-  height: 53px;
-  line-height: 53px;
+  height: 2.6rem;
+  line-height: 2.6rem;
   background-color: #eff1f4;
-  border-radius: 15px;
+  border-radius: 0.7rem;
   border-bottom-left-radius:0 ;
   border-bottom-right-radius:0 ;
 }
 .introduce img{
-  width: 244px;
-  height: 18px;
+  width: 11.8rem;
+  height: 0.9rem;
 }
 .introduce p{
-  padding: 7.5px 17.6px 17.6px 17.6px;
+  padding: 0.4rem 0.9rem 0.9rem 0.9rem;
   text-align: left;
 }
 .changeBtn{
-  width: 473px;
-  height: 74px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  width: 20rem;
+  height: 3.4rem;
+  border-top-left-radius: 0.7rem;
+  border-top-right-radius: 0.7rem;
   background-color: #ffffff;
-  font-size: 12px;
+  font-size: 0.6rem;
   position: absolute;
   bottom: 0px;
-  clear: both;
+  display: flex;
 }
 .left,.right{
-  float: left;
-  margin-top: 14px;
+  margin-top: 0.7rem;
+  flex: 1;
 }
 .changeBtn img{
-  width: 80px;
-  height: 19px;
+  width: 3.9rem;
+  height: 0.9rem;
 }
 .left{
-  width: 270px;
+  padding-left: 4.9rem;
 }
 .changeBtn .changeLeft{
-  width: 200px;
+  text-align: left;
+  padding-left: 1rem;
 }
-.right{
-  width: 200px;
-}
+
 .changeBtn span,.selectedBtn span{
   color: red;
 }
@@ -156,10 +159,10 @@ export default {
 .selectedRight,.selectedLeft{
   position: absolute;
   bottom: 0px;
-  width: 306px;
-  height: 158px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  width: 14rem;
+  height: 7.1rem;
+  border-top-left-radius: 0.72rem;
+  border-top-right-radius: 0.72rem;
   background-color: #ffd747;
 }
 .selectedRight{
@@ -169,22 +172,22 @@ export default {
   left: 0px;
 }
 .selectedBtn img{
-  width: 150x;
-  height: 40px;
-  margin-top: 34px;
+  width: 7.3rem;
+  height: 1.9rem;
+  margin-top: 1.65rem;
 }
 @keyframes move {
   from{transform: translateX(0px);}
-  to{transform: translateX(-6px);}
+  to{transform: translateX(-0.28rem);}
 }
 .selectedBtn .enter{
-  width: 138px;
-  height: 26px;
-  line-height: 26px;
-  border-radius: 30px;
+  width: 6.7rem;
+  height: 1.26rem;
+  line-height: 1.26rem;
+  border-radius: 1.5rem;
   background-color: #fff;
   margin: 0 auto;
-  margin-top: 10px;
+  margin-top: 0.5rem;
   animation: move 0.5s infinite alternate linear;
 }
 </style>

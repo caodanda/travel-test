@@ -27,7 +27,6 @@
   
 </template>
 <script>
-
 export default {
   name:'container',
   methods:{
@@ -42,13 +41,12 @@ export default {
 @keyframes move {
   from{background-position: 0% 0%;}
   to{background-position: 30% 0%;}
-  
 }
 .container{
-  width: 473px;
-  height: 760px;
+  width: 20rem;
+  height: 35.6rem;
   background-image: url('../assets/container/4.jpg');
-  background-size: 136% 100%;
+  background-size: cover;;
   background-repeat: no-repeat;
   color: #534b4b;
   font-size: 16px;
@@ -57,65 +55,65 @@ export default {
   position: relative;
 }
 .wrapper{
-  padding: 81px 27px 0px 27px;
+  padding: 4rem 1.3rem 0  1.3rem;
   overflow: hidden;
   
 }
 .title img{
-  width: 358px;
-  height: 196px;
+  width: 18rem;
+  height: 9.5rem;
 }
 .dec{
-  margin-left: 36px;
-  margin-top: 36px;
+  margin-left: 1.74rem;
+  margin-top: 1.74rem;
 }
 .dec li{
-  height: 60px;
-  line-height: 60px;
+  height: 3rem;
+  line-height: 3rem;
   text-align: left;
   font-weight: 700;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 1rem;
 
 }
 .dec li span{
-  font-size: 24px;
+  font-size: 1.2rem;
   color: #aac811;
 }
 .dec i{
   display: inline-block;
-  width: 18px;
+  width: 0.9rem;
   border: 1px solid #ffffff;
 }
 .apply{
-  width: 240px;
-  height: 50px;
+  width: 11.6rem;
+  height: 2.5rem;
   margin: 0 auto;
-  margin-top: 20px;
-  line-height: 50px;
+  margin-top: 1rem;
+  line-height: 2.5rem;
   font-size: 18px;
   font-weight: 600;
   color: #333333;
   background-color: #ffd74c;
-  border-radius: 30px;
+  border-radius: 1.5rem;
   text-align: center;
 }
 .loc{
   position: absolute;
-  bottom: 16px;
-  margin-left: 64px;
+  bottom: 0.5rem;
+  margin-left: 3rem;
 }
 .loc img{
-  width: 129px;
-  height: 14px;
+  width: 6.3rem;
+  height: 0.7rem;
   }
   .right-img{
     position: absolute;
-    right: 16px;
-    bottom: 24px;
+    right: 0.8rem;
+    bottom: 1.2rem;
   }
   .right-img img{
-    width: 14px;
-    height: 421px;
+    width: 0.7rem;
+    height: 20.4rem;
   }
 </style>
