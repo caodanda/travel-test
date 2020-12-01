@@ -12,4 +12,5 @@ new Vue({
 }).$mount('#app')
 
 let html = document.documentElement;
-html.style.fontSize = html.getBoundingClientRect().width / 20 + 'px'
+html.style.fontSize = '20.7px'
+// html.getBoundingClientRect().width / 20 + 'px'
