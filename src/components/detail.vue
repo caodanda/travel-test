@@ -143,7 +143,7 @@ export default {
     this.theme_id = this.$route.query.id
     if(this.theme_id == 1){
       axios({
-      url:'https://mock.yonyoucloud.com/mock/16373/travel-test',
+      url:'https://mock.yonyoucloud.com/mock/16426/travel-test2',
     }).then(
       (res)=>{
         this.teacher = res.data.data.teacher;
