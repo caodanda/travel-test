@@ -91,7 +91,6 @@
             v-if="stuNum3 < students[stuActiveNum].picture_display.length-1">
           </span>
         </div>
-
         <div class="author" v-if="students.length">
           <div class="students-author"
            v-for="(item,index) in students" :key="index" @click="stuClick(index)">
@@ -104,12 +103,12 @@
         </div>
       </div>
     </div>
-    <div class="changeBtn">
+    <!-- <div class="changeBtn">
       <div class="change">
         <img src="../assets/detail/c1.png"/>
         <span>点击分享</span>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

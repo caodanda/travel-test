@@ -7,7 +7,7 @@
       <div class="dec">
         <ul>
           <li><span>2位</span>摄影大神导师</li>
-          <li><span>4位</span>马蜂窝蜂首助教</li>
+          <li><span>4位</span>喔喔窝蜂首助教</li>
           <li>带你游学神秘巴山大峡谷</li>
           <li>进阶<span>摄影达人</span></li>
           <li><i></i></li>

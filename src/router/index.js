@@ -18,7 +18,7 @@ Vue.use(VueRouter)
     component: classify
   },
   {
-    path: '/detail',
+    path: '/detail/',
     name: 'detail',
     component: detail
   },
